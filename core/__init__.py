@@ -1,0 +1,3 @@
+"""
+Chatikkss Pilot — Core модули
+"""

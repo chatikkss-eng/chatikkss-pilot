@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatikkss Pilot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" type="image/x-icon" href="/static/chatikkss-logo.ico">
+</head>
+
+<body>
+
+    <!-- ═══ ONBOARDING ═══ -->
+    <div class="onboarding" id="onboarding">
+        <!-- Step 1: Welcome -->
+        <div class="ob-page active" id="obPage1">
+            <div class="ob-content">
+                <img class="ob-logo" src="/static/chatikkss-logo.ico" alt="Chatikkss Pilot">
+                <h1>Chatikkss Pilot</h1>
+                <p class="ob-desc">Твой умный ассистент, который управляет компьютером голосом и текстом</p>
+
+                <h2 style="font-size: 18px; margin: 30px 0; text-align: center; font-weight: 700;">Давайте начнем!</h2>
+
+                <button class="ob-btn" id="obNext">
+                    Давайте!
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 2: Name -->
+        <div class="ob-page" id="obPage2">
+            <div class="ob-content">
+                <img class="ob-emoji-gif" src="/static/hi-duck-tg-emoji.gif" alt="Hi">
+                <h1>Как тебя зовут?</h1>
+                <p class="ob-desc">Так я буду знать, как к тебе обращаться</p>
+                <input type="text" class="ob-input" id="obNameInput" placeholder="Введи своё имя..." autofocus
+                    maxlength="30" style="text-transform: capitalize;">
+                <button class="ob-btn" id="obStart" disabled>
+                    Начать работу
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ MAIN APP ═══ -->
+    <div class="app hidden" id="app">
+
+        <!-- Header -->
+        <header class="header" id="header">
+            <div class="header-left">
+                <button class="icon-btn" id="historyToggle" title="История чатов">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                </button>
+                <span class="logo-text">Chatikkss Pilot</span>
+            </div>
+            <div class="header-right">
+                <a href="https://t.me/carcu" target="_blank" class="by-slavik">By Slavik <img src="/static/rocket.gif"
+                        alt="rocket" style="width: 14px; height: 14px; margin-left: 6px;"></a>
+
+                <button class="icon-btn" id="themeBtn" title="Сменить тему">
+                    <svg class="ico-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <circle cx="12" cy="12" r="5" />
+                        <path
+                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                    </svg>
+                    <svg class="ico-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+
+                <button class="icon-btn" id="settingsBtn" title="Настройки">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3" />
+                        <path
+                            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- History Sidebar -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-top">
+                <span class="sidebar-title">Чаты</span>
+                <button class="new-chat-btn" id="newChatBtn" title="Новый чат">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="sidebar-list" id="historyList">
+                <!-- dynamic -->
+            </div>
+        </aside>
+
+        <!-- Settings Panel -->
+        <div class="settings-panel" id="settingsPanel">
+            <div class="s-title">
+                Настройки
+                <button class="icon-btn" id="closeSettingsBtn" title="Закрыть" style="width: 28px; height: 28px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="s-group">
+                <div class="s-group-title">Внешний вид</div>
+                <div class="s-row">
+                    <span>Тема</span>
+                    <div class="pills">
+                        <button class="pill active" data-theme="dark">Тёмная</button>
+                        <button class="pill" data-theme="light">Светлая</button>
+                    </div>
+                </div>
+                <div class="s-row">
+                    <span>Размер текста</span>
+                    <div class="pills">
+                        <button class="pill-sm" data-size="small">A</button>
+                        <button class="pill-sm active" data-size="medium">A</button>
+                        <button class="pill-sm" data-size="large">A</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="s-group">
+                <div class="s-group-title">Голос</div>
+                <div class="s-row">
+                    <span>Выбор голоса</span>
+                    <select id="voiceSelect" class="s-select">
+                        <option value="ru-RU-DmitryNeural">Дмитрий (Мужской)</option>
+                        <option value="ru-RU-SvetlanaNeural">Светлана (Женский)</option>
+                        <option value="ru-RU-DariyaNeural">Дария (Женский 2)</option>
+                    </select>
+                </div>
+                <div class="s-row">
+                    <span>Озвучка ответов</span>
+                    <label class="switch"><input type="checkbox" id="ttsToggle" checked><span
+                            class="slider"></span></label>
+                </div>
+                <div class="s-row">
+                    <span>Авто-прослушивание</span>
+                    <label class="switch"><input type="checkbox" id="autoPlayToggle" checked><span
+                            class="slider"></span></label>
+                </div>
+            </div>
+
+            <div class="s-group">
+                <div class="s-group-title">Безопасность</div>
+                <div class="s-row">
+                    <span>Подтверждать все действия</span>
+                    <label class="switch"><input type="checkbox" id="confirmAllToggle"><span
+                            class="slider"></span></label>
+                </div>
+            </div>
+
+            <div class="s-group">
+                <div class="s-group-title">Профиль</div>
+                <div class="s-row">
+                    <span>Имя</span>
+                    <input type="text" class="s-input" id="nameInput" placeholder="Имя..." maxlength="30">
+                </div>
+            </div>
+
+            <div class="s-group">
+                <div class="s-group-title">Данные</div>
+                <button class="s-danger-btn" id="clearAllBtn">🗑️ Удалить все данные</button>
+            </div>
+
+            <div class="s-about">
+                Chatikkss Pilot v1.0 • Mistral Large • 2026
+            </div>
+        </div>
+
+        <!-- Chat -->
+        <main class="chat" id="chat">
+            <div class="welcome" id="welcome">
+                <img class="ob-emoji-gif" src="/static/hi-duck-tg-emoji.gif" alt="Hi" style="margin-bottom: 24px;">
+                <div class="welcome-hi">Привет, <span id="welcomeName">друг</span>!</div>
+                <div class="welcome-sub">Чем могу помочь?</div>
+            </div>
+        </main>
+
+        <!-- Input -->
+        <footer class="input-area">
+            <div class="input-row" id="inputRow">
+                <button class="mic-btn" id="micBtn" title="Голос (Ctrl+M)">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                        <line x1="12" y1="19" x2="12" y2="23" />
+                        <line x1="8" y1="23" x2="16" y2="23" />
+                    </svg>
+                </button>
+                <input type="text" id="msgInput" placeholder="Напиши что-нибудь..." autocomplete="off"
+                    spellcheck="false">
+                <button class="send-btn" id="sendBtn" title="Отправить">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+        </footer>
+    </div>
+
+    <audio id="ttsPlayer" preload="none"></audio>
+    <div class="toasts" id="toasts"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+
+</html>
