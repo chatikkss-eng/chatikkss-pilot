@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatikkss Pilot</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Favicon link (shares the app icon) -->
+    <link rel="icon" type="image/png" href="logo.png">
+</head>
+
+<body>
+    <div class="glow-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="grain"></div>
+
+    <nav class="nav">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            <span>Chatikkss Pilot</span>
+        </div>
+        <div class="links">
+            <a href="https://github.com/chatikkss-eng/chatikkss-pilot" target="_blank" class="nav-link">GitHub</a>
+            <a href="https://t.me/carcu" target="_blank" class="nav-link">Telegram</a>
+            <a href="#" class="nav-link highlight" onclick="openSupportModal()">Поддержать</a>
+        </div>
+    </nav>
+
+    <main class="hero">
+        <div class="hero-content">
+            <div class="badge">Сделано С ❤️ от Slavik</div>
+            <h1>Твой десктоп <br><span>стал умнее.</span></h1>
+            <p>Управляй системой голосом, общайся с Чатиккссом и автоматизируй рутину прямо с рабочего стола. Чистый
+                код, открытый исходник и никакой магии!</p>
+
+            <div class="hero-btns">
+                <!-- Links for downloading -->
+                <a href="https://github.com/chatikkss-eng/chatikkss-pilot/releases/download/1/Chatikkss.Pilot.exe"
+                    class="btn-primary" download>Скачать .EXE <span class="btn-sub">Windows x64</span></a>
+                <a href="https://github.com/chatikkss-eng/chatikkss-pilot" target="_blank" class="btn-secondary">GitHub
+                    <span class="btn-sub">Open Source</span></a>
+            </div>
+
+            <div class="features-mini">
+                <div class="feat-item"
+                    data-tip="Умный интеллект Chatikkss: помнит контекст, бла бла бла че то ещё. Кто это ваще читает?">
+                    <img src="logo.png" alt="icon"> Chatikkss
+                </div>
+                <div class="feat-item"
+                    data-tip="Полный голосовой контроль: диктуй сообщения, запускай программы и ищи информацию, не касаясь клавиатуры.">
+                    <img src="micro.gif" alt="icon"> Voice Control
+                </div>
+                <div class="feat-item"
+                    data-tip="Система безопасности: ассистент всегда спросит твоего подтверждения перед выполнением важных действий в Windows.">
+                    <img src="shield.gif" alt="icon"> Safe Actions
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <div class="glass-card portrait">
+                <img src="image.png" alt="Chatikkss Hero" class="main-img portrait-img">
+            </div>
+        </div>
+    </main>
+
+    <section class="details">
+        <div class="detail-card">
+            <h3>Прозрачность</h3>
+            <p>Весь код открыт. Никаких скрытых сборов данных. Твой .env файл — твой ключ, твои правила.</p>
+        </div>
+        <div class="detail-card">
+            <h3>Скорость</h3>
+            <p>Легкий на памяти, быстрый в ответах. J.A.R.V.I.S на минималках прямо у тебя в Windows.</p>
+        </div>
+        <div class="detail-card">
+            <h3>Голос</h3>
+            <p>Не любишь печатать? Просто скажи. Chatikkss поймет команду и выполнит её за тебя.</p>
+        </div>
+    </section>
+
+    <section class="security-banner">
+        <div class="security-content">
+            <div class="security-icon">🛡️</div>
+            <div class="security-text">
+                <h3>Безопасность и Open Source</h3>
+                <p>Проект полностью открыт: вы можете провести аудит кода на GitHub перед запуском. Поскольку мы не
+                    используем платные подписи Microsoft, браузеры могут выдать предупреждение — это стандартная
+                    процедура для независимого ПО. Просто нажмите «Подробнее» → «Выполнить в любом случае».</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 Chatikkss Pilot. Crafted by Slavik with ❤️</p>
+    </footer>
+
+    <!-- Support Modal -->
+    <div class="modal-overlay" id="supportModal">
+        <div class="modal">
+            <button class="close-modal" onclick="closeSupportModal()">×</button>
+            <h2>Выбор способа поддержки</h2>
+            <p>Привет! Я очень рад, что ты хочешь поддержать проект. Ты можешь поддержать меня, отправив криптовалюту на
+                TON кошелек или через Donation Alerts.</p>
+
+            <div class="support-options">
+                <button class="support-btn" onclick="copyWallet()" id="copyBtn">
+                    <span class="btn-icon">💎</span>
+                    <div class="btn-text">
+                        <span id="copyText">Скопировать TON адрес</span>
+                        <small>UQAjcKkV4mIbCwFhEmN...7N7fBy</small>
+                    </div>
+                </button>
+                <a href="https://dalink.to/chatikkss" target="_blank" class="support-btn"
+                    style="text-decoration: none;">
+                    <span class="btn-icon">💸</span>
+                    <div class="btn-text">
+                        <span>Donation Alerts</span>
+                        <small>Любые способы оплаты</small>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
