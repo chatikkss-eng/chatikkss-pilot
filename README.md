@@ -1,4 +1,4 @@
-# Chatikkss Pilot 🚀
+# Chatikkss Pilot 🧑‍✈️
 **Умный AI-ассистент типа Джарвиса**
 
 ![Chatikkss Hero](https://i.ibb.co/HLLJMKjk/Untitled-3.png)
@@ -50,6 +50,7 @@ Chatikkss Pilot это проект, рожденный из идеи объед
 Проект распространяется по лицензии **MIT**. Вы можете изучать код и предлагать свои улучшения через Pull Requests. 
 
 *Created with ❤️ by Slavik*
+
 
 
 
